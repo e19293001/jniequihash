@@ -1,0 +1,18 @@
+* jniequihash
+
+jniequihash is a java wrapper for the optimized C++ implementation of
+Equihash. 
+
+https://github.com/khovratovich/equihash
+
+** Usage
+Required set-up:
+JAVA_HOME - JDK installation path
+
+$ export JAVA_HOME=<path to jdk>
+$ make
+
+Currently using the following parameters:
+n = 120 
+k = 5
+s = 3
