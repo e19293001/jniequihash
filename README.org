@@ -11,41 +11,41 @@ Required set-up:
 
 JAVA_HOME - JDK installation path
 
-
-   $ export JAVA_HOME=<path to jdk>
-
-   $ make
+#+begin_src sh
+  $ export JAVA_HOME=<path to jdk>
+  $ make
+#+end_src            
 
 Currently using the following parameters:
 
-   n = 120 
-
-   k = 5
-
-   s = 3
-
+#+begin_src sh
+  n = 120 
+  k = 5
+  s = 3
+#+end_src 
+           
 ** Example run
 
-   #+begin_src sh
-        $ make
-        javac jniequihash.java
-        javah -jni jniequihash
-        g++ -g -c -std=c++11 -fPIC "equihash/Source/C++11/pow.cc" -o pow.o
-        g++ -g -c -std=c++11 -fPIC "equihash/Source/C++11/pow-test.cc" -o pow-test.o
-        g++ -g -c -std=c++11 -fPIC "equihash/Source/C++11/blake/blake2b.cpp" -o blake.o
-        g++ -g -fPIC -I/usr/lib/jvm/java-8-openjdk-amd64//include -I/usr/lib/jvm/java-8-openjdk-amd64//include/linux -Iequihash/Source/C++11/ -o libjniequihash.so -shared jniequihash.cpp pow.o pow-test.o blake.o
-        java -Djava.library.path=. jniequihash
-        Running equihash...
-        Testing nonce 2
-        Filling 67155.50  Mcycles 
-        Resolving 14302.17  Mcycles 
-        Resolving 13561.42  Mcycles 
-        Resolving 11794.88  Mcycles 
-        Resolving 10895.68  Mcycles 
-        Resolving 7772.19  Mcycles 
-        Time spent for n=120 k=5  102400 KiB: 125482.38  Mcycles 
-        Solution found:
-         47e0c  52478  1afd2  1e6c5c  d27b8  1ce199  1ac442  1e663c  e3081  e3a5e  8cfea  1ef496  a4268  104c14  1b987e  1bf135  85696  fd07d  8938d  18961c  12f68  bb139  1980dc  1a5928  1b23c8  1cbca9  39831  15955c  72ac1  1a5ed1  18887  1cf8c8 
-   #+end_src            
+#+begin_src sh
+  $ make
+    javac jniequihash.java
+    javah -jni jniequihash
+    g++ -g -c -std=c++11 -fPIC "equihash/Source/C++11/pow.cc" -o pow.o
+    g++ -g -c -std=c++11 -fPIC "equihash/Source/C++11/pow-test.cc" -o pow-test.o
+    g++ -g -c -std=c++11 -fPIC "equihash/Source/C++11/blake/blake2b.cpp" -o blake.o
+    g++ -g -fPIC -I/usr/lib/jvm/java-8-openjdk-amd64//include -I/usr/lib/jvm/java-8-openjdk-amd64//include/linux -Iequihash/Source/C++11/ -o libjniequihash.so -shared jniequihash.cpp pow.o pow-test.o blake.o
+    java -Djava.library.path=. jniequihash
+    Running equihash...
+    Testing nonce 2
+    Filling 67155.50  Mcycles 
+    Resolving 14302.17  Mcycles 
+    Resolving 13561.42  Mcycles 
+    Resolving 11794.88  Mcycles 
+    Resolving 10895.68  Mcycles 
+    Resolving 7772.19  Mcycles 
+    Time spent for n=120 k=5  102400 KiB: 125482.38  Mcycles 
+    Solution found:
+     47e0c  52478  1afd2  1e6c5c  d27b8  1ce199  1ac442  1e663c  e3081  e3a5e  8cfea  1ef496  a4268  104c14  1b987e  1bf135  85696  fd07d  8938d  18961c  12f68  bb139  1980dc  1a5928  1b23c8  1cbca9  39831  15955c  72ac1  1a5ed1  18887  1cf8c8 
+#+end_src            
 
 
